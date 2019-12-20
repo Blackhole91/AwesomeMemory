@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:weightSum="3"
-    android:background="@drawable/download">
+    android:background="@drawable/black">
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,33 +21,37 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:padding="4dp"
             android:scaleType="centerInside"
-            android:src="@drawable/fz1" />
+            android:src="@drawable/fz12" />
 
 
         <ImageView
-            android:src="@drawable/fz1"
+            android:src="@drawable/fz12"
             android:layout_weight="1"
             android:id="@+id/_12"
             android:scaleType="centerInside"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            android:padding="4dp"/>
 
         <ImageView
-            android:src="@drawable/fz1"
+            android:src="@drawable/fz12"
             android:layout_weight="1"
             android:id="@+id/_13"
             android:scaleType="centerInside"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            android:padding="4dp"/>
 
         <ImageView
-            android:src="@drawable/fz1"
+            android:src="@drawable/fz12"
             android:layout_weight="1"
             android:id="@+id/_14"
             android:scaleType="centerInside"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            android:padding="4dp"/>
 
 
     </LinearLayout>
@@ -59,37 +64,41 @@
 
 
         <ImageView
-            android:src="@drawable/fz1"
+            android:src="@drawable/fz12"
             android:layout_weight="1"
             android:id="@+id/_21"
             android:scaleType="centerInside"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            android:padding="4dp"/>
 
 
         <ImageView
-            android:src="@drawable/fz1"
+            android:src="@drawable/fz12"
             android:layout_weight="1"
             android:id="@+id/_22"
             android:scaleType="centerInside"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            android:padding="4dp"/>
 
         <ImageView
-            android:src="@drawable/fz1"
+            android:src="@drawable/fz12"
             android:layout_weight="1"
             android:id="@+id/_23"
             android:scaleType="centerInside"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            android:padding="4dp"/>
 
         <ImageView
-            android:src="@drawable/fz1"
+            android:src="@drawable/fz12"
             android:layout_weight="1"
             android:id="@+id/_24"
             android:scaleType="centerInside"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            android:padding="4dp"/>
 
 
     </LinearLayout>
@@ -108,31 +117,35 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:scaleType="centerInside"
-            android:src="@drawable/fz1" />
+            android:src="@drawable/fz12"
+            android:padding="4dp"/>
 
         <ImageView
-            android:src="@drawable/fz1"
+            android:src="@drawable/fz12"
             android:layout_weight="1"
             android:id="@+id/_32"
             android:scaleType="centerInside"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            android:padding="4dp"/>
 
         <ImageView
-            android:src="@drawable/fz1"
+            android:src="@drawable/fz12"
             android:layout_weight="1"
             android:id="@+id/_33"
             android:scaleType="centerInside"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            android:padding="4dp"/>
 
         <ImageView
-            android:src="@drawable/fz1"
+            android:src="@drawable/fz12"
             android:layout_weight="1"
             android:id="@+id/_34"
             android:scaleType="centerInside"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            android:padding="4dp"/>
 
 
     </LinearLayout>
