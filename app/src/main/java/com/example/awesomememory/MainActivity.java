@@ -2,28 +2,24 @@ package com.example.awesomememory;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
 
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 
 
 public class MainActivity extends AppCompatActivity {
 
+    MediaPlayer click,gameMusic;
     TextView textViewPlayer1, textViewPlayer2;
     ImageView iv_11, iv_12, iv_13, iv_14, iv_21, iv_22, iv_23, iv_24, iv_31, iv_32, iv_33, iv_34;
 
@@ -43,6 +39,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        gameMusic = MediaPlayer.create(MainActivity.this,R.raw.gamemusic);
+        click = MediaPlayer.create(MainActivity.this,R.raw.click1);
 
         textViewPlayer1 =  findViewById(R.id.textView1);
         textViewPlayer2 =  findViewById(R.id.textView2);
@@ -86,11 +85,14 @@ public class MainActivity extends AppCompatActivity {
         textViewPlayer2.setTextColor(Color.GRAY);
         textViewPlayer1.setTextColor(Color.BLACK);
 
+        gameMusic.start();
+
         iv_11.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 int theCard = Integer.parseInt((String) v.getTag());
                 doStuff(iv_11, theCard);
+                click.start();
 
             }
         });
