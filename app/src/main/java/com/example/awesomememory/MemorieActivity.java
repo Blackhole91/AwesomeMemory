@@ -9,10 +9,12 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Vibrator;
+import android.view.SoundEffectConstants;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -25,6 +27,7 @@ import java.util.Collections;
 
 public class MemorieActivity extends AppCompatActivity {
     int mediaLenght;
+    AudioManager audioManager;
     SharedPreferences sharedPreferences;
     Vibrator vibrator;
     MediaPlayer click,gameMusic,crowd;
@@ -63,7 +66,7 @@ public class MemorieActivity extends AppCompatActivity {
 
         gameMusic = MediaPlayer.create(MemorieActivity.this,R.raw.relax);
         crowd = MediaPlayer.create(MemorieActivity.this,R.raw.crowd);
-        click = MediaPlayer.create(MemorieActivity.this,R.raw.click1);
+        click = MediaPlayer.create(MemorieActivity.this,R.raw.click2);
 
         textViewPlayer1 =  findViewById(R.id.textView1);
         textViewPlayer2 =  findViewById(R.id.textView2);
@@ -112,14 +115,18 @@ public class MemorieActivity extends AppCompatActivity {
         iv_11.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                click.start();
                 vibrator.vibrate(50);
                 int theCard = Integer.parseInt((String) v.getTag());
                 doStuff(iv_11, theCard);
+                // get the AudioManager once onCreate or similar
+
             }
         });
         iv_12.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                click.start();
                 vibrator.vibrate(50);
                 int theCard = Integer.parseInt((String) v.getTag());
                 doStuff(iv_12, theCard);
@@ -129,6 +136,7 @@ public class MemorieActivity extends AppCompatActivity {
         iv_13.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                click.start();
                 vibrator.vibrate(50);
                 int theCard = Integer.parseInt((String) v.getTag());
                 doStuff(iv_13, theCard);
@@ -137,6 +145,7 @@ public class MemorieActivity extends AppCompatActivity {
         iv_14.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                click.start();
                 vibrator.vibrate(50);
                 int theCard = Integer.parseInt((String) v.getTag());
                 doStuff(iv_14, theCard);
@@ -145,6 +154,7 @@ public class MemorieActivity extends AppCompatActivity {
         iv_21.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                click.start();
                 vibrator.vibrate(50);
                 int theCard = Integer.parseInt((String) v.getTag());
                 doStuff(iv_21, theCard);
@@ -153,6 +163,7 @@ public class MemorieActivity extends AppCompatActivity {
         iv_22.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                click.start();
                 vibrator.vibrate(50);
                 int theCard = Integer.parseInt((String) v.getTag());
                 doStuff(iv_22, theCard);
@@ -161,6 +172,7 @@ public class MemorieActivity extends AppCompatActivity {
         iv_23.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                click.start();
                 vibrator.vibrate(50);
                 int theCard = Integer.parseInt((String) v.getTag());
                 doStuff(iv_23, theCard);
@@ -169,6 +181,7 @@ public class MemorieActivity extends AppCompatActivity {
         iv_24.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                click.start();
                 vibrator.vibrate(50);
                 int theCard = Integer.parseInt((String) v.getTag());
                 doStuff(iv_24, theCard);
@@ -177,6 +190,7 @@ public class MemorieActivity extends AppCompatActivity {
         iv_31.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                click.start();
                 vibrator.vibrate(50);
                 int theCard = Integer.parseInt((String) v.getTag());
                 doStuff(iv_31, theCard);
@@ -185,6 +199,7 @@ public class MemorieActivity extends AppCompatActivity {
         iv_32.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                click.start();
                 vibrator.vibrate(50);
                 int theCard = Integer.parseInt((String) v.getTag());
                 doStuff(iv_32, theCard);
@@ -193,6 +208,7 @@ public class MemorieActivity extends AppCompatActivity {
         iv_33.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                click.start();
                 vibrator.vibrate(50);
                 int theCard = Integer.parseInt((String) v.getTag());
                 doStuff(iv_33, theCard);
@@ -201,6 +217,7 @@ public class MemorieActivity extends AppCompatActivity {
         iv_34.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                click.start();
                 vibrator.vibrate(50);
                 int theCard = Integer.parseInt((String) v.getTag());
                 doStuff(iv_34, theCard);
@@ -511,8 +528,6 @@ public class MemorieActivity extends AppCompatActivity {
         }
 
      }
-
-
 
     private void frontOfCardsResources () {
 
