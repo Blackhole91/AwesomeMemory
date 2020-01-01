@@ -266,77 +266,77 @@ public class MainActivity extends AppCompatActivity {
 
         if (firstCard == secondCard) {
             if (clickedFirst == 0) {
-                iv_11.setImageResource(View.INVISIBLE);
+                iv_11.setVisibility(View.INVISIBLE);
 
             } else if (clickedFirst == 1) {
-                iv_12.setImageResource(View.INVISIBLE);
+                iv_12.setVisibility(View.INVISIBLE);
 
             } else if (clickedFirst == 2) {
-                iv_13.setImageResource(View.INVISIBLE);
+                iv_13.setVisibility(View.INVISIBLE);
 
             } else if (clickedFirst == 3) {
-                iv_14.setImageResource(View.INVISIBLE);
+                iv_14.setVisibility(View.INVISIBLE);
 
             } else if (clickedFirst == 4) {
-                iv_21.setImageResource(View.INVISIBLE);
+                iv_21.setVisibility(View.INVISIBLE);
 
             } else if (clickedFirst == 5) {
-                iv_22.setImageResource(View.INVISIBLE);
+                iv_22.setVisibility(View.INVISIBLE);
 
             } else if (clickedFirst == 6) {
-                iv_23.setImageResource(View.INVISIBLE);
+                iv_23.setVisibility(View.INVISIBLE);
 
             } else if (clickedFirst == 7) {
-                iv_24.setImageResource(View.INVISIBLE);
+                iv_24.setVisibility(View.INVISIBLE);
 
             } else if (clickedFirst == 8) {
-                iv_31.setImageResource(View.INVISIBLE);
+                iv_31.setVisibility(View.INVISIBLE);
 
             } else if (clickedFirst == 9) {
-                iv_32.setImageResource(View.INVISIBLE);
+                iv_32.setVisibility(View.INVISIBLE);
 
             } else if (clickedFirst == 10) {
-                iv_33.setImageResource(View.INVISIBLE);
+                iv_33.setVisibility(View.INVISIBLE);
 
             } else if (clickedFirst == 11) {
-                iv_34.setImageResource(View.INVISIBLE);
+                iv_34.setVisibility(View.INVISIBLE);
             }
 
             if (clickedSecond == 0) {
-                iv_11.setImageResource(View.INVISIBLE);
+                iv_11.setVisibility(View.INVISIBLE);
 
             } else if (clickedSecond == 1) {
-                iv_12.setImageResource(View.INVISIBLE);
+                iv_12.setVisibility(View.INVISIBLE);
 
             } else if (clickedSecond == 2) {
-                iv_13.setImageResource(View.INVISIBLE);
+                iv_13.setVisibility(View.INVISIBLE);
 
             } else if (clickedSecond == 3) {
-                iv_14.setImageResource(View.INVISIBLE);
+                iv_14.setVisibility(View.INVISIBLE);
 
             } else if (clickedSecond == 4) {
-                iv_21.setImageResource(View.INVISIBLE);
+                iv_21.setVisibility(View.INVISIBLE);
 
             } else if (clickedSecond == 5) {
-                iv_22.setImageResource(View.INVISIBLE);
+                iv_22.setVisibility(View.INVISIBLE);
 
             } else if (clickedSecond == 6) {
-                iv_23.setImageResource(View.INVISIBLE);
+                iv_23.setVisibility(View.INVISIBLE);
 
             } else if (clickedSecond == 7) {
-                iv_24.setImageResource(View.INVISIBLE);
+                iv_24.setVisibility(View.INVISIBLE);
 
             } else if (clickedSecond == 8) {
-                iv_31.setImageResource(View.INVISIBLE);
+                iv_31.setVisibility(View.INVISIBLE);
 
             } else if (clickedSecond == 9) {
-                iv_32.setImageResource(View.INVISIBLE);
+                iv_32.setVisibility(View.INVISIBLE);
 
             } else if (clickedSecond == 10) {
-                iv_33.setImageResource(View.INVISIBLE);
+                iv_33.setVisibility(View.INVISIBLE);
 
             } else if (clickedSecond == 11) {
-                iv_34.setImageResource(View.INVISIBLE);
+                iv_34.setVisibility(View.INVISIBLE);
             }
 
 
