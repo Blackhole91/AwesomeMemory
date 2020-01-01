@@ -2,29 +2,38 @@ package com.example.awesomememory;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.preference.PreferenceManager;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Vibrator;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.Arrays;
 import java.util.Collections;
 
 
-public class MainActivity extends AppCompatActivity {
-
-    MediaPlayer click,gameMusic;
+public class MemorieActivity extends AppCompatActivity {
+    int mediaLenght;
+    SharedPreferences sharedPreferences;
+    Vibrator vibrator;
+    MediaPlayer click,gameMusic,crowd;
     TextView textViewPlayer1, textViewPlayer2;
     ImageView iv_11, iv_12, iv_13, iv_14, iv_21, iv_22, iv_23, iv_24, iv_31, iv_32, iv_33, iv_34;
 
     Integer[] cardArray = {101, 102, 103, 104, 105, 106, 201, 202, 203, 204, 205, 206};
 
+    long[] pattern = {0,200,200,200};
     int p_101, p_102, p_103, p_104, p_105, p_106, p_201, p_202, p_203, p_204, p_205, p_206;
 
     int firstCard, secondCard;
@@ -34,14 +43,27 @@ public class MainActivity extends AppCompatActivity {
     int turn = 1;
 
     int playerPoints = 0, player2Points = 0;
+    boolean check2;
+
+    RelativeLayout relativeLayout1;
+    LinearLayout linearLayoutImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_memorie);
 
-        gameMusic = MediaPlayer.create(MainActivity.this,R.raw.gamemusic);
-        click = MediaPlayer.create(MainActivity.this,R.raw.click1);
+        relativeLayout1 = (RelativeLayout) findViewById(R.id.relativLayout1);
+        linearLayoutImage = (LinearLayout)findViewById(R.id.linearimage);
+
+
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+
+        vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+
+        gameMusic = MediaPlayer.create(MemorieActivity.this,R.raw.relax);
+        crowd = MediaPlayer.create(MemorieActivity.this,R.raw.crowd);
+        click = MediaPlayer.create(MemorieActivity.this,R.raw.click1);
 
         textViewPlayer1 =  findViewById(R.id.textView1);
         textViewPlayer2 =  findViewById(R.id.textView2);
@@ -82,30 +104,32 @@ public class MainActivity extends AppCompatActivity {
         Collections.shuffle(Arrays.asList(cardArray));
 
         //change color of player
-        textViewPlayer2.setTextColor(Color.GRAY);
-        textViewPlayer1.setTextColor(Color.BLACK);
+        textViewPlayer2.setTextColor(Color.WHITE);
+        textViewPlayer1.setTextColor(Color.BLUE);
 
-        gameMusic.start();
+
 
         iv_11.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                vibrator.vibrate(50);
                 int theCard = Integer.parseInt((String) v.getTag());
                 doStuff(iv_11, theCard);
-                click.start();
-
             }
         });
         iv_12.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                vibrator.vibrate(50);
                 int theCard = Integer.parseInt((String) v.getTag());
                 doStuff(iv_12, theCard);
+
             }
         });
         iv_13.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                vibrator.vibrate(50);
                 int theCard = Integer.parseInt((String) v.getTag());
                 doStuff(iv_13, theCard);
             }
@@ -113,6 +137,7 @@ public class MainActivity extends AppCompatActivity {
         iv_14.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                vibrator.vibrate(50);
                 int theCard = Integer.parseInt((String) v.getTag());
                 doStuff(iv_14, theCard);
             }
@@ -120,6 +145,7 @@ public class MainActivity extends AppCompatActivity {
         iv_21.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                vibrator.vibrate(50);
                 int theCard = Integer.parseInt((String) v.getTag());
                 doStuff(iv_21, theCard);
             }
@@ -127,6 +153,7 @@ public class MainActivity extends AppCompatActivity {
         iv_22.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                vibrator.vibrate(50);
                 int theCard = Integer.parseInt((String) v.getTag());
                 doStuff(iv_22, theCard);
             }
@@ -134,6 +161,7 @@ public class MainActivity extends AppCompatActivity {
         iv_23.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                vibrator.vibrate(50);
                 int theCard = Integer.parseInt((String) v.getTag());
                 doStuff(iv_23, theCard);
             }
@@ -141,6 +169,7 @@ public class MainActivity extends AppCompatActivity {
         iv_24.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                vibrator.vibrate(50);
                 int theCard = Integer.parseInt((String) v.getTag());
                 doStuff(iv_24, theCard);
             }
@@ -148,6 +177,7 @@ public class MainActivity extends AppCompatActivity {
         iv_31.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                vibrator.vibrate(50);
                 int theCard = Integer.parseInt((String) v.getTag());
                 doStuff(iv_31, theCard);
             }
@@ -155,6 +185,7 @@ public class MainActivity extends AppCompatActivity {
         iv_32.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                vibrator.vibrate(50);
                 int theCard = Integer.parseInt((String) v.getTag());
                 doStuff(iv_32, theCard);
             }
@@ -162,6 +193,7 @@ public class MainActivity extends AppCompatActivity {
         iv_33.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                vibrator.vibrate(50);
                 int theCard = Integer.parseInt((String) v.getTag());
                 doStuff(iv_33, theCard);
             }
@@ -169,6 +201,7 @@ public class MainActivity extends AppCompatActivity {
         iv_34.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                vibrator.vibrate(50);
                 int theCard = Integer.parseInt((String) v.getTag());
                 doStuff(iv_34, theCard);
             }
@@ -176,6 +209,33 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+    public void onResume(){
+        super.onResume();
+
+        if (firstCard==secondCard){
+
+        }
+        gameMusic.seekTo(mediaLenght);
+        gameMusic.start();
+
+        check2 = sharedPreferences.getBoolean("DARKMODE",false);
+        if(!check2){
+            relativeLayout1.setBackgroundColor(Color.GRAY);
+
+        }else{
+            relativeLayout1.setBackgroundColor(Color.BLACK);
+
+        }
+    }
+
+    public void onPause(){
+        super.onPause();
+
+        gameMusic.pause();
+        mediaLenght = gameMusic.getCurrentPosition();
+    }
+
+
 
     private void doStuff(ImageView iv, int card) {
         // set correct image to image view
@@ -265,6 +325,9 @@ public class MainActivity extends AppCompatActivity {
         //if images are equal remove them and add point
 
         if (firstCard == secondCard) {
+            vibrator.vibrate(pattern,-1);
+            //click.start();
+
             if (clickedFirst == 0) {
                 iv_11.setVisibility(View.INVISIBLE);
 
@@ -342,14 +405,17 @@ public class MainActivity extends AppCompatActivity {
 
             //add points to the correct player
             if (turn == 1) {
+
                 playerPoints++;
                 textViewPlayer1.setText("Player 1: " + playerPoints);
 
             } else if (turn == 2) {
+
                 player2Points++;
                 textViewPlayer2.setText("Player 2: " + player2Points);
 
             }
+
 
         } else {
             iv_11.setImageResource(R.drawable.fz12);
@@ -371,12 +437,12 @@ public class MainActivity extends AppCompatActivity {
             //change player turn
             if (turn == 1) {
                 turn = 2;
-                textViewPlayer1.setTextColor(Color.GRAY);
-                textViewPlayer2.setTextColor(Color.BLACK);
+                textViewPlayer1.setTextColor(Color.WHITE);
+                textViewPlayer2.setTextColor(Color.BLUE);
             } else if (turn == 2) {
                 turn = 1;
-                textViewPlayer2.setTextColor(Color.GRAY);
-                textViewPlayer1.setTextColor(Color.BLACK);
+                textViewPlayer2.setTextColor(Color.WHITE);
+                textViewPlayer1.setTextColor(Color.BLUE);
             }
         }
         iv_11.setEnabled(true);
@@ -395,7 +461,7 @@ public class MainActivity extends AppCompatActivity {
         iv_34.setEnabled(true);
 
         //check if game is over
-        //checkEnd();
+         checkEnd();
     }
     private void checkEnd () {
         if (iv_11.getVisibility() == View.INVISIBLE &&
@@ -411,14 +477,24 @@ public class MainActivity extends AppCompatActivity {
                 iv_33.getVisibility() == View.INVISIBLE &&
                 iv_34.getVisibility() == View.INVISIBLE){
 
-            AlertDialog.Builder alertDiologBuilder = new AlertDialog.Builder(MainActivity.this);
-            alertDiologBuilder.setMessage("Game Over!\nP1: "+ playerPoints + "\nP2: " + player2Points)
+            crowd.start();
+
+            AlertDialog.Builder alertDiologBuilder = new AlertDialog.Builder(MemorieActivity.this);
+
+            if (playerPoints>player2Points){
+                alertDiologBuilder.setMessage("Game Over! Spieler 1 hat gewonnen\nP1: "+ playerPoints + "\nP2: " + player2Points);
+            } if (playerPoints<player2Points){
+                alertDiologBuilder.setMessage("Game Over! Spieler 2 hat gewonnen\nP1: "+ playerPoints + "\nP2: " + player2Points);
+            } if (playerPoints==player2Points){
+                alertDiologBuilder.setMessage("Game Over! Unentschieden\nP1: "+ playerPoints + "\nP2: " + player2Points);
+            }
+            alertDiologBuilder
                               .setCancelable(false)
                               .setPositiveButton("NEW", new DialogInterface.OnClickListener() {
                                   @Override
                                   public void onClick(DialogInterface dialog, int which) {
 
-                                      Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                                      Intent intent = new Intent(getApplicationContext(), MemorieActivity.class);
                                       startActivity(intent);
                                       finish();
                                                                                          }
@@ -452,6 +528,7 @@ public class MainActivity extends AppCompatActivity {
             p_204 = R.drawable.i_204;
             p_205 = R.drawable.i_205;
             p_206 = R.drawable.i_206;
+
         }
 
     }
