@@ -21,12 +21,12 @@
 
 
         <SwitchPreferenceCompat
-
             app:key="DARKMODE"
             app:summaryOff="Lightmode activ"
             app:summaryOn="Darkmode activ"
             app:defaultValue="false"
-            app:title="Darkmode" />
+            app:title="Darkmode"
+            />
 
         <SwitchPreferenceCompat
             app:key="sync"

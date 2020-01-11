@@ -55,9 +55,12 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
         check = sharedPreferencesMain.getBoolean("DARKMODE",false);
 
         if(!check){
-            linearLayoutMain.setBackgroundColor(Color.GRAY);
+
+            linearLayoutMain.setBackgroundResource(R.drawable.white_brick);
+
         }else{
-            linearLayoutMain.setBackgroundColor(Color.BLACK);
+
+            linearLayoutMain.setBackgroundResource(R.drawable.triangle_black);
         }
     }
 
