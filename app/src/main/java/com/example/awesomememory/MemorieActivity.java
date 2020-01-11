@@ -150,7 +150,7 @@ public class MemorieActivity extends AppCompatActivity implements View.OnClickLi
 
 
         if(!check2){
-            relativeLayout1.setBackgroundResource(R.drawable.white_brick);
+            relativeLayout1.setBackgroundResource(R.drawable.trinangle_white);
           //  linearLayoutImage.setBackgroundResource(R.drawable.triangle);
 
         }else{
