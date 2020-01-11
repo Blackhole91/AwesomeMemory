@@ -56,7 +56,7 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
 
         if(!check){
 
-            linearLayoutMain.setBackgroundResource(R.drawable.white_brick);
+            linearLayoutMain.setBackgroundResource(R.drawable.trinangle_white);
 
         }else{
 

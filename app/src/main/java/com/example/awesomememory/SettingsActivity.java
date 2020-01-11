@@ -48,7 +48,7 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
 
         if(!check3){
 
-            linearLayout3.setBackgroundResource(R.drawable.white_brick);
+            linearLayout3.setBackgroundResource(R.drawable.trinangle_white);
 
 
 
