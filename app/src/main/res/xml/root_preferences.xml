@@ -20,10 +20,10 @@
     <PreferenceCategory app:title="Settings">
 
 
+
         <SwitchPreferenceCompat
+         
             app:key="DARKMODE"
-            app:summaryOff="Lightmode activ"
-            app:summaryOn="Darkmode activ"
             app:defaultValue="false"
             app:title="Darkmode"
             />
@@ -33,6 +33,7 @@
             app:title="weitere Einstellungen" />
 
     </PreferenceCategory>
+
 
 
 </PreferenceScreen>

@@ -5,25 +5,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Main2Activity"
+    android:orientation="vertical"
+    android:gravity="center"
     android:id="@+id/linearMain">
 
 
-
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
     <Button
         android:id="@+id/button500"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:text="Play"
         android:layout_gravity="center"
 
-
          />
 
     <Button
         android:id="@+id/button600"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Highscore"
         android:orientation="horizontal"
@@ -32,7 +36,7 @@
         />
     <Button
         android:id="@+id/button700"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Settings"
         android:orientation="horizontal"
@@ -40,7 +44,7 @@
 
         />
 
-
+</LinearLayout>
 
 
 </LinearLayout>

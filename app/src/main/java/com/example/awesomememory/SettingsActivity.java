@@ -11,10 +11,11 @@ import android.widget.RadioGroup;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceManager;
 
-public class SettingsActivity extends AppCompatActivity implements View.OnClickListener {
+public class SettingsActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
 
 
     SharedPreferences sharedPreferences2;
@@ -37,37 +38,38 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
         }
 
         sharedPreferences2 = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-        check3 = sharedPreferences2.getBoolean("DARKMODE",false);
-        linearLayout3 = (LinearLayout)findViewById(R.id.linear3);
-
+        sharedPreferences2.registerOnSharedPreferenceChangeListener(this);
+        check3 = sharedPreferences2.getBoolean("DARKMODE", false);
+        linearLayout3 = (LinearLayout) findViewById(R.id.linear3);
+        AppCompatDelegate.setDefaultNightMode(check3 ? AppCompatDelegate.MODE_NIGHT_YES : AppCompatDelegate.MODE_NIGHT_NO);
     }
 
-    public void onResume(){
+    public void onResume() {
         super.onResume();
+        setDarkMode();
+    }
 
-
-        if(!check3){
-
+    private void setDarkMode() {
+        if (!check3) {
             linearLayout3.setBackgroundResource(R.drawable.trinangle_white);
-
-
-
-        }else{
+        } else {
             linearLayout3.setBackgroundResource(R.drawable.triangle_black);
-
-
-
         }
+    }
+
+    @Override
+    public void onPointerCaptureChanged(boolean hasCapture) {
 
     }
 
     @Override
-    public void onClick(View v) {
-
-        
+    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+        if (key.equals("DARKMODE")) {
+            check3 = sharedPreferences.getBoolean(key, false);
+            AppCompatDelegate.setDefaultNightMode(check3 ? AppCompatDelegate.MODE_NIGHT_YES : AppCompatDelegate.MODE_NIGHT_NO);
+            setDarkMode();
+        }
     }
-
-
 
     public static class SettingsFragment extends PreferenceFragmentCompat {
         @Override

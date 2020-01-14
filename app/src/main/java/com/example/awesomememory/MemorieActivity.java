@@ -26,13 +26,14 @@ import java.util.Collections;
 
 
 public class MemorieActivity extends AppCompatActivity implements View.OnClickListener {
+
     int mediaLenght;
 
-    int colorLight1;
-    int colorDark1;
+    int colorLightBlue1;
+    int colorDarkGreen1;
 
-    int colorLight2;
-    int colorDark2;
+    int colorLightBlack2;
+    int colorDarkWhite2;
 
     SharedPreferences sharedPreferences;
     Vibrator vibrator;
@@ -73,11 +74,11 @@ public class MemorieActivity extends AppCompatActivity implements View.OnClickLi
         relativeLayout1 = (RelativeLayout) findViewById(R.id.relativLayout1);
         linearLayoutImage = (LinearLayout)findViewById(R.id.linearimage);
 
-        colorLight1 = Color.BLUE;
-        colorLight2 = Color.BLACK;
+        colorLightBlue1 = Color.BLUE;
+        colorLightBlack2 = Color.BLACK;
 
-        colorDark1 = Color.GREEN;
-        colorDark2 = Color.WHITE;
+        colorDarkGreen1 = Color.GREEN;
+        colorDarkWhite2 = Color.WHITE;
 
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 
@@ -104,14 +105,12 @@ public class MemorieActivity extends AppCompatActivity implements View.OnClickLi
 
         }
 
-
         //shuffle images
         Collections.shuffle(Arrays.asList(cardArray));
 
     }
     @Override
     public void onClick(View v) {
-
 
         for (int z = 0; z<12; z++) {
             if (v.getId() == imageArray[z].getId()){
@@ -121,7 +120,6 @@ public class MemorieActivity extends AppCompatActivity implements View.OnClickLi
                 int theCard = Integer.parseInt((String) v.getTag());
                 doStuff(imageArray[z], theCard);
             }
-
 
         }
     }
@@ -136,17 +134,12 @@ public class MemorieActivity extends AppCompatActivity implements View.OnClickLi
 
         //change color of player
         if (!check2){
-            textViewPlayer1.setTextColor(colorLight1);
-            textViewPlayer2.setTextColor(colorLight2);
+            textViewPlayer1.setTextColor(colorLightBlue1);
+            textViewPlayer2.setTextColor(colorLightBlack2);
         }else {
-            textViewPlayer1.setTextColor(colorDark1);
-            textViewPlayer2.setTextColor(colorDark2);
+            textViewPlayer1.setTextColor(colorDarkGreen1);
+            textViewPlayer2.setTextColor(colorDarkWhite2);
         }
-
-        if (firstCard==secondCard){
-
-        }
-
 
 
         if(!check2){
@@ -272,24 +265,26 @@ public class MemorieActivity extends AppCompatActivity implements View.OnClickLi
 
                     //change player turn
                     if (turn == 1) {
-                        turn = 2;
+
                         if (!check2) {
-                            textViewPlayer1.setTextColor(colorLight1);
-                            textViewPlayer2.setTextColor(colorLight2);
+                            textViewPlayer2.setTextColor(colorLightBlue1);
+                            textViewPlayer1.setTextColor(colorLightBlack2);
                         } else {
-                            textViewPlayer1.setTextColor(colorDark1);
-                            textViewPlayer2.setTextColor(colorDark2);
+                            textViewPlayer2.setTextColor(colorDarkGreen1);
+                            textViewPlayer1.setTextColor(colorDarkWhite2);
                         }
+                        turn = 2;
 
                     } else if (turn == 2) {
-                        turn = 1;
+
                         if (!check2) {
-                            textViewPlayer2.setTextColor(colorLight1);
-                            textViewPlayer1.setTextColor(colorLight2);
+                            textViewPlayer1.setTextColor(colorLightBlue1);
+                            textViewPlayer2.setTextColor(colorLightBlack2);
                         } else {
-                            textViewPlayer2.setTextColor(colorDark1);
-                            textViewPlayer1.setTextColor(colorDark2);
+                            textViewPlayer1.setTextColor(colorDarkGreen1);
+                            textViewPlayer2.setTextColor(colorDarkWhite2);
                         }
+                        turn = 1;
                     }
 
                 }
