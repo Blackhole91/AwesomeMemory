@@ -14,9 +14,9 @@
         layout="@layout/images"
         android:layout_width="562dp"
         android:layout_height="300dp"
-        android:layout_centerVertical="true"
         tools:layout_editor_absoluteX="2dp"
         tools:layout_editor_absoluteY="299dp"
+        android:layout_centerVertical="true"
 
         />
 
