@@ -12,29 +12,28 @@
     <include
         android:id="@+id/include"
         layout="@layout/images"
-        android:layout_width="562dp"
+        android:layout_width="400dp"
         android:layout_height="300dp"
-        android:layout_centerVertical="true"
         tools:layout_editor_absoluteX="2dp"
         tools:layout_editor_absoluteY="299dp"
-
+       android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
         />
 
     <TextView
         android:id="@+id/textView1"
-        android:layout_width="1000dp"
-        android:textSize="20dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp"
+        android:layout_marginLeft="80dp"
         android:layout_marginTop="20dp"
-        android:text="Player 1" />
+        android:text="Payer 1" />
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="1000dp"
-        android:textSize="20dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginHorizontal="500dp"
+        android:gravity="center"
         android:text="Player 2" />
 </RelativeLayout>

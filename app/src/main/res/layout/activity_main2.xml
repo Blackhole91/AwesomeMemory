@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Main2Activity"
+    tools:context=".MainActivity"
     android:orientation="vertical"
     android:gravity="center"
     android:id="@+id/linearMain">
@@ -19,9 +19,11 @@
         android:id="@+id/button500"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:text="Play"
+        android:orientation="horizontal"
         android:layout_gravity="center"
+        android:background="@drawable/my_button"
+        android:textColor="#00ff00"
 
          />
 
@@ -32,6 +34,8 @@
         android:text="Highscore"
         android:orientation="horizontal"
         android:layout_gravity="center"
+        android:background="@drawable/my_button"
+        android:textColor="#00ff00"
 
         />
     <Button
@@ -41,6 +45,10 @@
         android:text="Settings"
         android:orientation="horizontal"
         android:layout_gravity="center"
+        android:background="@drawable/my_button"
+        android:textColor="#00ff00"
+        />
+
 
         />
 

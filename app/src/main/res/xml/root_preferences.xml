@@ -19,8 +19,6 @@
 
     <PreferenceCategory app:title="Settings">
 
-
-
         <SwitchPreferenceCompat
          
             app:key="DARKMODE"
@@ -29,8 +27,10 @@
             />
 
         <SwitchPreferenceCompat
-            app:key="sync"
-            app:title="weitere Einstellungen" />
+            app:key="MUSIC"
+            app:title="Music"
+            app:defaultValue="true"
+            />
 
     </PreferenceCategory>
 

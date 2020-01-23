@@ -14,6 +14,7 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Vibrator;
+import android.util.Log;
 import android.view.SoundEffectConstants;
 import android.view.View;
 import android.widget.ImageView;
@@ -23,15 +24,15 @@ import android.widget.TextView;
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Random;
 
 
 public class MemorieActivity extends AppCompatActivity implements View.OnClickListener {
 
     int mediaLenght;
-
+    int counter;
     int colorLightBlue1;
     int colorDarkGreen1;
-
     int colorLightBlack2;
     int colorDarkWhite2;
 
@@ -52,40 +53,37 @@ public class MemorieActivity extends AppCompatActivity implements View.OnClickLi
 
     int[] idArray = {R.id._11,R.id._12,R.id._13,R.id._14,R.id._21,R.id._22,R.id._23,R.id._24,R.id._31,R.id._32,R.id._33,R.id._34};
 
-
     int firstCard, secondCard;
-    int clickedFirst, clickedSecond;
+    int clickedFirst,clickedSecond;
 
     int cardNumber = 1;
     int turn = 1;
 
     int playerPoints = 0, player2Points = 0;
-    boolean check2;
+    boolean check2, check1;
 
     RelativeLayout relativeLayout1;
     LinearLayout linearLayoutImage;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_memorie);
 
+        counter = 0;
 
         relativeLayout1 = (RelativeLayout) findViewById(R.id.relativLayout1);
         linearLayoutImage = (LinearLayout)findViewById(R.id.linearimage);
 
         colorLightBlue1 = Color.BLUE;
         colorLightBlack2 = Color.BLACK;
-
         colorDarkGreen1 = Color.GREEN;
         colorDarkWhite2 = Color.WHITE;
 
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 
         vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-
-        //load images
-
 
         gameMusic = MediaPlayer.create(MemorieActivity.this,R.raw.relax);
         crowd = MediaPlayer.create(MemorieActivity.this,R.raw.crowd);
@@ -95,8 +93,6 @@ public class MemorieActivity extends AppCompatActivity implements View.OnClickLi
         textViewPlayer1 =  findViewById(R.id.textView1);
         textViewPlayer2 =  findViewById(R.id.textView2);
 
-        frontOfCardsResources();
-
         for(int i = 0; i < 12; i++){
 
             imageArray[i] = (ImageView) findViewById(idArray[i]);
@@ -105,10 +101,12 @@ public class MemorieActivity extends AppCompatActivity implements View.OnClickLi
 
         }
 
-        //shuffle images
+        //load images frontOfCardsResources();
+        frontOfCardsResources();
         Collections.shuffle(Arrays.asList(cardArray));
 
     }
+
     @Override
     public void onClick(View v) {
 
@@ -124,14 +122,17 @@ public class MemorieActivity extends AppCompatActivity implements View.OnClickLi
         }
     }
 
-
     public void onResume(){
         super.onResume();
 
         gameMusic.seekTo(mediaLenght);
-        gameMusic.start();
-        check2 = sharedPreferences.getBoolean("DARKMODE",false);
 
+        check2 = sharedPreferences.getBoolean("DARKMODE",false);
+        check1 = sharedPreferences.getBoolean("MUSIC",false);
+
+        if (check1){
+            gameMusic.start();
+        }
         //change color of player
         if (!check2){
             textViewPlayer1.setTextColor(colorLightBlue1);
@@ -141,10 +142,9 @@ public class MemorieActivity extends AppCompatActivity implements View.OnClickLi
             textViewPlayer2.setTextColor(colorDarkWhite2);
         }
 
-
         if(!check2){
             relativeLayout1.setBackgroundResource(R.drawable.trinangle_white);
-          //  linearLayoutImage.setBackgroundResource(R.drawable.triangle);
+           // linearLayoutImage.setBackgroundResource(R.drawable.andi2);
 
         }else{
             relativeLayout1.setBackgroundResource(R.drawable.triangle_black);
@@ -159,19 +159,35 @@ public class MemorieActivity extends AppCompatActivity implements View.OnClickLi
         mediaLenght = gameMusic.getCurrentPosition();
     }
 
-
-
     private void doStuff(ImageView iv, int card) {
         // set correct image to image view
 
-        for (int j = 0; j<12; j++){
-
-            if (cardArray[card].equals( cardArray[j])){
-
-                iv.setImageResource(drawableArray[j]);
+            if (cardArray[card] == 101) {
+                iv.setImageResource(drawableArray[0]);
+            } else if (cardArray[card] == 102) {
+                iv.setImageResource(drawableArray[1]);
+            } else if (cardArray[card] == 103) {
+                iv.setImageResource(drawableArray[2]);
+            } else if (cardArray[card] == 104) {
+                iv.setImageResource(drawableArray[3]);
+            } else if (cardArray[card] == 105) {
+                iv.setImageResource(drawableArray[4]);
+            } else if (cardArray[card] == 106) {
+                iv.setImageResource(drawableArray[5]);
+            } else if (cardArray[card] == 201) {
+                iv.setImageResource(drawableArray[6]);
+            } else if (cardArray[card] == 202) {
+                iv.setImageResource(drawableArray[7]);
+            } else if (cardArray[card] == 203) {
+                iv.setImageResource(drawableArray[8]);
+            } else if (cardArray[card] == 204) {
+                iv.setImageResource(drawableArray[9]);
+            } else if (cardArray[card] == 205) {
+                iv.setImageResource(drawableArray[10]);
+            } else if (cardArray[card] == 206) {
+                iv.setImageResource(drawableArray[11]);
             }
 
-        }
         // check which image is selected and save it temporary
 
         if (cardNumber == 1) {
@@ -210,7 +226,6 @@ public class MemorieActivity extends AppCompatActivity implements View.OnClickLi
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    // check if selected image is equal
 
                         calculate();
 
@@ -222,13 +237,12 @@ public class MemorieActivity extends AppCompatActivity implements View.OnClickLi
     private void calculate() {
         //if images are equal remove them and add point
 
-
-
             if (firstCard == secondCard) {
-                for (int y = 0; y < 12; y++) {
 
-                    vibrator.vibrate(pattern, -1);
-                    click2.start();
+                vibrator.vibrate(pattern, -1);
+                click2.start();
+
+                for (int y = 0; y < 12; y++) {
 
                     if (clickedFirst == y) {
 
@@ -252,6 +266,7 @@ public class MemorieActivity extends AppCompatActivity implements View.OnClickLi
                     textViewPlayer2.setText("Player 2: " + player2Points);
 
                 }
+                counter++;
 
 
             }else {
@@ -259,10 +274,8 @@ public class MemorieActivity extends AppCompatActivity implements View.OnClickLi
 
                         imageArray[t].setImageResource(R.drawable.fz12);
 
+
                     }
-
-
-
                     //change player turn
                     if (turn == 1) {
 
@@ -293,13 +306,14 @@ public class MemorieActivity extends AppCompatActivity implements View.OnClickLi
         for(int w = 0; w<12; w++){
             imageArray[w].setEnabled(true);
         }
+
         checkEnd();
 
     }
 
     private void checkEnd () {
-        for ( int m = 0; m<12; m++){
-            if (imageArray[m].getVisibility() == View.INVISIBLE){
+
+            if (counter == 6){
 
                 crowd.start();
 
@@ -336,12 +350,9 @@ public class MemorieActivity extends AppCompatActivity implements View.OnClickLi
             }
         }
 
-
-     }
-
     private void frontOfCardsResources () {
 
-            drawableArray[0] = R.drawable.i_101;
+        drawableArray[0] = R.drawable.i_101;
         drawableArray[1] = R.drawable.i_102;
         drawableArray[2] = R.drawable.i_103;
         drawableArray[3] = R.drawable.i_104;
@@ -355,6 +366,4 @@ public class MemorieActivity extends AppCompatActivity implements View.OnClickLi
         drawableArray[11] = R.drawable.i_206;
 
         }
-
-
 }

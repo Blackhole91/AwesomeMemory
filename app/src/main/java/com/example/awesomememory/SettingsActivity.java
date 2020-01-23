@@ -50,10 +50,10 @@ public class SettingsActivity extends AppCompatActivity implements SharedPrefere
     }
 
     private void setDarkMode() {
-        if (!check3) {
-            linearLayout3.setBackgroundResource(R.drawable.trinangle_white);
-        } else {
+        if (check3) {
             linearLayout3.setBackgroundResource(R.drawable.triangle_black);
+        } else {
+            linearLayout3.setBackgroundResource(R.drawable.trinangle_white);
         }
     }
 

@@ -14,17 +14,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
-public class Main2Activity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button button500;
     private Button button600;
     private Button button700;
-    private Intent intent;
-    private Intent intent2;
     private SharedPreferences sharedPreferencesMain;
     boolean check;
-    LinearLayout linearLayoutMain;
 
+    LinearLayout linearLayoutMain;
 
 
     @Override
@@ -44,8 +42,6 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
         linearLayoutMain = (LinearLayout)findViewById(R.id.linearMain);
 
         sharedPreferencesMain = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-
-
 
 
     }
@@ -69,13 +65,13 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
     public void onClick(View v) {
 
         if(v.getId() == button500.getId()){
-            intent = new Intent(this,MemorieActivity.class);
+           Intent intent = new Intent(this,MemorieActivity.class);
             startActivity(intent);
         }
 
         if(v.getId() == button700.getId()){
-            intent2 = new Intent(this,SettingsActivity.class);
-            startActivity(intent2);
+           Intent intent = new Intent(this,SettingsActivity.class);
+            startActivity(intent);
         }
 
 
