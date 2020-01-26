@@ -17,7 +17,7 @@
 
     <Button
         android:id="@+id/button500"
-        android:layout_width="match_parent"
+        android:layout_width="400dp"
         android:layout_height="wrap_content"
         android:text="Play"
         android:orientation="horizontal"
@@ -29,7 +29,7 @@
 
     <Button
         android:id="@+id/button600"
-        android:layout_width="match_parent"
+        android:layout_width="400dp"
         android:layout_height="wrap_content"
         android:text="Highscore"
         android:orientation="horizontal"
@@ -40,7 +40,7 @@
         />
     <Button
         android:id="@+id/button700"
-        android:layout_width="match_parent"
+        android:layout_width="400dp"
         android:layout_height="wrap_content"
         android:text="Settings"
         android:orientation="horizontal"
